@@ -40,7 +40,7 @@ dependencies {
     testCompile 'info.cukes:cucumber-junit:1.2.4'
     testCompile 'info.cukes:cucumber-java:1.2.4'
 
-    cucumberRuntime   'info.cukes:cucumber-java:1.2.4'
+    cucumberCompile   'info.cukes:cucumber-java:1.2.4'
 }
 
 test {
