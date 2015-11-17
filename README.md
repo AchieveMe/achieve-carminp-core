@@ -1,4 +1,4 @@
-Carminp - Core
+Carminp - Core [![Dependency Status](https://www.versioneye.com/user/projects/564b66924e32b60016000268/badge.svg?style=flat)](https://www.versioneye.com/user/projects/564b66924e32b60016000268)
 ============
 
 Carpe diem, quam minimum credula postero.
