@@ -15,6 +15,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'net.researchgate.release' version '2.3.4'
+    id "com.github.samueltbrown.cucumber" version "0.9"
 }
 
 apply plugin: 'spring-boot'
@@ -35,6 +36,9 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test') 
     testCompile('org.springframework.restdocs:spring-restdocs-mockmvc:1.0.0.RC1')
     testCompile('org.assertj:assertj-core:3.2.0')
+    testCompile('junit:junit:4.12')
+
+    cucumberCompile 'info.cukes:cucumber-java:1.2.4'
 }
 
 test {
@@ -65,6 +69,10 @@ release {
         requireBranch = 'master'
         pushToRemote = 'origin'
     }
+}
+
+cucumber {
+    formats = ['pretty','json:build/cucumber.json','junit:build/cucumber.xml']
 }
 
 eclipse {
