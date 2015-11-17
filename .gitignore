@@ -36,6 +36,9 @@
 # IntelliJ
 /out/
 
+# Vagrant
+.vagrant/
+
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 

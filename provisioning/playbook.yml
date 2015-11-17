@@ -1,0 +1,9 @@
+---
+- name: Carminp provisioning system
+  hosts: all
+  remote_user: vagrant
+  sudo: true
+  roles:
+    - bootstrap
+    - java
+    - mongodb

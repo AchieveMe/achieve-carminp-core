@@ -1,0 +1,2 @@
+mongodb_users:
+ - { username: guiandmag, password: pass123, database: carminp }

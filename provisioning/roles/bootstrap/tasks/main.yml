@@ -1,0 +1,36 @@
+---
+# File: main.yml
+# Part: bootstrap
+#
+# Description:
+# - Install useful packages
+#
+# Parameters:
+#
+#
+# OS familly: Ubuntu >= 12.04
+
+- name: Bootstrap | Update apt caches.
+  command: apt-get update
+
+- name: Bootstrap | Upgrade installed packages.
+  command: apt-get upgrade -y
+
+- name: Bootstrap | Install 'python-apt' module
+  command: apt-get install python-apt -y
+
+- name: Bootstrap | Install misc utils
+  apt: pkg={{item}} state=present
+  with_items:
+    - htop
+    - curl
+    - tmux
+    - unzip
+    - python-software-properties # Dependencies for the apt module
+    - software-properties-common
+    - sudo
+    - vim
+    - wget
+    - tar
+    - build-essential
+    - libssl-dev

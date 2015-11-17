@@ -1,0 +1,6 @@
+---
+- include: install.yml
+  tags: [mongodb, mongodb-install]
+
+- include: users.yml
+  tags: [mongodb, mongodb-users]
