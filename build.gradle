@@ -37,8 +37,10 @@ dependencies {
     testCompile('org.springframework.restdocs:spring-restdocs-mockmvc:1.0.0.RC1')
     testCompile('org.assertj:assertj-core:3.2.0')
     testCompile('junit:junit:4.12')
+    testCompile 'info.cukes:cucumber-junit:1.2.4'
+    testCompile 'info.cukes:cucumber-java:1.2.4'
 
-    cucumberCompile('info.cukes:cucumber-java:1.2.4')
+    cucumberRuntime   'info.cukes:cucumber-java:1.2.4'
 }
 
 test {
