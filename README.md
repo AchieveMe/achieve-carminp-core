@@ -1,6 +1,8 @@
 Carminp - Core [![Dependency Status](https://www.versioneye.com/user/projects/564b66924e32b60016000268/badge.svg?style=flat)](https://www.versioneye.com/user/projects/564b66924e32b60016000268) [![Code Advisor On Demand Status](https://badges.ondemand.coverity.com/jobs/p3bo7addr95jv6ac56pud4qtrk)](https://ondemand.coverity.com/jobs/p3bo7addr95jv6ac56pud4qtrk/results)
 ============
 
+[![Join the chat at https://gitter.im/AchieveMe/achieve-carminp-core](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/AchieveMe/achieve-carminp-core?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Carpe diem, quam minimum credula postero.
 
 É com essa frase que foi pensado nesse pequeno sistema para cadastro de frases e seus respectivos autores.
