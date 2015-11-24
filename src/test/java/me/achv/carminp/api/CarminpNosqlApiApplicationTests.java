@@ -11,6 +11,7 @@ public class CarminpNosqlApiApplicationTests {
 
 	@Test
 	public void contextLoads() {
+
 	}
 
 }
