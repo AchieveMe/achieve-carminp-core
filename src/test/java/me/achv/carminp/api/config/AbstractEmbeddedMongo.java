@@ -3,8 +3,8 @@ package me.achv.carminp.api.config;
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import de.flapdoodle.embed.mongo.MongodExecutable;
-import de.flapdoodle.embed.mongo.MongodStarter;
 import de.flapdoodle.embed.mongo.MongodProcess;
+import de.flapdoodle.embed.mongo.MongodStarter;
 import de.flapdoodle.embed.mongo.config.MongodConfigBuilder;
 import de.flapdoodle.embed.mongo.config.Net;
 import de.flapdoodle.embed.mongo.distribution.Version;
@@ -23,16 +23,18 @@ public abstract class AbstractEmbeddedMongo {
     private MongodProcess mongod;
     private MongoClient mongo;
 
+    private int port = 12345;
+
     @Before
     public void setUp() throws Exception {
         mongodExe = starter.prepare(new MongodConfigBuilder()
-        .version(Version.Main.DEVELOPMENT)
+        .version(Version.Main.PRODUCTION)
         .net(new Net(12345, Network.localhostIsIPv6()))
         .build());
 
         mongod = mongodExe.start();
 
-        mongo = new MongoClient("localhost", 12345);
+        mongo = new MongoClient("localhost", port);
     }
 
     @After
