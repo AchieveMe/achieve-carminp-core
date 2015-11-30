@@ -101,5 +101,6 @@ task wrapper(type: Wrapper) {
 }
 
 task stage {
+    test.enabled = false
     dependsOn build
 }
