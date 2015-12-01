@@ -3,6 +3,13 @@ spring:
     active: dev
 ---
 spring:
+  profiles: production
+  data:
+    mongodb:
+      database: carminp
+      uri: <%= ENV['MONGOLAB_URI'] %>
+---
+spring:
   profiles: dev
   data:
     mongodb:

@@ -49,9 +49,24 @@ dependencies {
     cucumberCompile 'info.cukes:cucumber-java:1.2.4'
 }
 
+def mongoRunning = false
+
 test {
     forkEvery = 5
     maxParallelForks = Runtime.runtime.availableProcessors() / 2
+
+    doFirst {
+        startMongoDb.execute()
+        mongoRunning = true
+    }
+    finalizedBy stopMongoDb
+}
+
+stopMongoDb{
+    onlyIf {mongoRunning}
+    doLast  {
+        mongoRunning = false
+    }
 }
 
 jar {
@@ -101,6 +116,5 @@ task wrapper(type: Wrapper) {
 }
 
 task stage {
-    test.enabled = false
     dependsOn build
 }
