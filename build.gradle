@@ -107,7 +107,7 @@ eclipse {
 }
 
 mongo {
-    port 12345
+    port 13579
     logging 'console'
 }
 
