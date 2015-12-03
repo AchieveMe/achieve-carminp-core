@@ -7,7 +7,7 @@ spring:
   data:
     mongodb:
       database: carminp
-      uri: <%= ENV['MONGOLAB_URI'] %>
+      uri: mongodb://carminp:carminp1@ds059694.mongolab.com:59694/heroku_tjp72kxk
 ---
 spring:
   profiles: dev

@@ -36,9 +36,9 @@ repositories {
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web:1.3.0.RELEASE"
     compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
-    compile 'org.springframework.data:spring-data-mongodb:1.8.1.RELEASE'
     compile 'com.google.guava:guava:18.0'
     compile 'net.sf.oval:oval:1.85'
+    compile 'org.mongodb:mongo-java-driver:3.2.0-rc0'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.assertj:assertj-core:3.2.0'
@@ -106,15 +106,15 @@ eclipse {
     }
 }
 
+bootRun {
+    systemProperties System.properties
+}
+
 mongo {
-    port 13579
+    port 12345
     logging 'console'
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.9'
-}
-
-task stage {
-    dependsOn build
 }

@@ -15,7 +15,6 @@ public final class UserAccount extends AbstractModel {
     private String name, username;
 
     @Field("email")
-    @Indexed(unique = true)
     private String email;
 
     public UserAccount(String name, String username, String email) {
