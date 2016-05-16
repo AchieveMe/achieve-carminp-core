@@ -1,4 +1,8 @@
 spring:
+  social:
+    facebook:
+      app-secret: 4ec7bad30457d1e57db8fe556c8b0595
+      app-id: 1017666058284084
   profiles:
     active: dev
 ---
