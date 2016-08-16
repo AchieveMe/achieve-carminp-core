@@ -18,3 +18,5 @@ spring:
   data:
     mongodb:
       database: carminp
+server:
+  context-path: /carminp-api
