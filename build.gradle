@@ -14,6 +14,7 @@ plugins {
     id 'java'
     id 'eclipse'
     id 'idea'
+    id 'com.gradle.build-scan' version '1.0'
     id 'net.researchgate.release' version '2.4.0'
     id "com.github.samueltbrown.cucumber" version "0.9"
     id "com.coverity.ondemand" version "1.5.61"
@@ -70,6 +71,11 @@ jar {
     baseName = 'carminp-nosql-api'
     version = project.version
     destinationDir = file('target/')
+}
+
+buildScan {
+    licenseAgreementUrl = 'https://gradle.com/terms-of-service'
+    licenseAgree = 'yes'
 }
 
 sourceSets {
