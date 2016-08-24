@@ -11,7 +11,10 @@ spring:
   data:
     mongodb:
       database: carminp
-      uri: <%= ENV['MONGOLAB_URI'] %>
+logging:
+  file: prod-log.log
+server:
+  port: 8080
 ---
 spring:
   profiles: dev
@@ -20,3 +23,5 @@ spring:
       database: carminp
 server:
   context-path: /carminp-api
+logging:
+  file: dev-log.log
