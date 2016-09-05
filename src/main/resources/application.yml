@@ -21,7 +21,5 @@ spring:
   data:
     mongodb:
       database: carminp
-server:
-  context-path: /carminp-api
 logging:
   file: dev-log.log
