@@ -21,5 +21,7 @@ spring:
   data:
     mongodb:
       database: carminp
+    rest:
+      default-page-size: 2
 logging:
   file: dev-log.log

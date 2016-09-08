@@ -107,6 +107,7 @@ local.properties
 .gradle
 build/
 target/
+classes/
 
 # Ignore Gradle GUI config
 gradle-app.setting

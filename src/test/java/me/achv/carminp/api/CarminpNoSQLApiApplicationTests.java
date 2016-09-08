@@ -1,23 +1,21 @@
 package me.achv.carminp.api;
 
-import org.junit.Test;
+import com.jayway.restassured.http.ContentType;
+import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.restdocs.JUnitRestDocumentation;
 import org.springframework.test.context.junit4.SpringRunner;
-import static org.assertj.core.api.Assertions.*;
-
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@Ignore
 public class CarminpNoSQLApiApplicationTests {
 
-	public void contextLoads() {
+	@Rule
+	public final JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation("build/generated-snippets");
 
-	}
-
-	@Test
-	public void testAssertion() {
-		assertThat("aaa").contains("aaa");
-	}
+	protected ContentType DEFAULT_MEDIA_TYPE = ContentType.JSON;
 
 }

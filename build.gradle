@@ -16,9 +16,9 @@ plugins {
     id 'idea'
     id 'com.gradle.build-scan' version '1.0'
     id 'net.researchgate.release' version '2.4.0'
-    id "com.github.samueltbrown.cucumber" version "0.9"
     id "com.coverity.ondemand" version "1.5.61"
     id "com.sourcemuse.mongo" version "0.13.0"
+    id "org.asciidoctor.convert" version "1.5.3"
 }
 
 apply plugin: 'spring-boot'
@@ -40,14 +40,14 @@ dependencies {
     compile 'net.sf.oval:oval:1.85'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
-    testCompile 'io.rest-assured:rest-assured:3.0.0'
-    testCompile 'info.cukes:cucumber-junit:1.2.4'
-    testCompile 'info.cukes:cucumber-java:1.2.4'
-
-    cucumberCompile 'info.cukes:cucumber-java:1.2.4'
+    testCompile 'org.springframework.restdocs:spring-restdocs-restassured:1.1.2.RELEASE'
 }
 
 def mongoRunning = false
+
+ext {
+    snippetsDir = file('build/generated-snippets')
+}
 
 test {
     forkEvery = 5
@@ -58,7 +58,16 @@ test {
         mongoRunning = true
     }
 
+    outputs.dir snippetsDir
+
     finalizedBy stopMongoDb
+}
+
+asciidoctor {
+    attributes 'snippets': snippetsDir
+    inputs.dir snippetsDir
+
+    dependsOn test
 }
 
 stopMongoDb{
@@ -71,7 +80,11 @@ stopMongoDb{
 jar {
     baseName = 'carminp-nosql-api'
     version = project.version
-    destinationDir = file('target/')
+
+    dependsOn asciidoctor
+    from ("${asciidoctor.outputDir}/html5") {
+        into 'static/docs'
+    }
 }
 
 buildScan {
@@ -97,10 +110,6 @@ release {
         requireBranch = 'master'
         pushToRemote = 'origin'
     }
-}
-
-cucumber {
-    formats = ['pretty','json:build/cucumber.json','junit:build/cucumber.xml']
 }
 
 eclipse.classpath.file {
